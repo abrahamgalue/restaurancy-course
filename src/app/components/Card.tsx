@@ -1,8 +1,8 @@
 import { type Restaurant } from '@/api'
 
-export default function Card({ name, image, score, ratings, description }: Restaurant) {
+export default function Card({ id, name, image, score, ratings, description }: Restaurant) {
   return (
-    <>
+    <article key={id}>
       <img
         alt={name}
         className="mb-3 h-[300px] w-full object-cover rounded-xl"
@@ -19,6 +19,6 @@ export default function Card({ name, image, score, ratings, description }: Resta
         </small>
       </h2>
       <p className="opacity-90">{description}</p>
-    </>
+    </article>
   )
 }

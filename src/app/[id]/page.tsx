@@ -9,8 +9,6 @@ export default async function RestaurantPage({
   const restaurant = await api.fetch(id);
 
   return (
-    <article key={restaurant.id}>
       <Card {...restaurant} />
-    </article>
   );
 }
