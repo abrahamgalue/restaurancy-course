@@ -126,12 +126,12 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const api = {
   list: async (): Promise<Restaurant[]> => {
-    await sleep(750);
+    await sleep(7500);
 
     return restaurants;
   },
   fetch: async (id: Restaurant["id"]): Promise<Restaurant> => {
-    await sleep(750);
+    await sleep(7500);
 
     const restaurant = restaurants.find((restaurant) => restaurant.id === id);
 
