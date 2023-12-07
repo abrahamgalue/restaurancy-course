@@ -10,6 +10,14 @@ export async function generateMetadata({params: {id}}: {params: {id: string}}) {
   }
 }
 
+export async function generateStaticParams() {
+  const restaurants = await api.list();
+
+  return restaurants.map((restaurant) => ({
+    id: restaurant.id,
+  }));
+}
+
 export default async function RestaurantPage({
   params: { id },
 }: {

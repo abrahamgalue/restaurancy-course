@@ -124,15 +124,58 @@ const restaurants: Restaurant[] = [
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const DATA_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTDBZz46kAo-Ukx5WAEEtSxNzYt92mN51Ldrm8tEsPdL5jnhw3xWMwEr-bCDlTxF2y2SzDyqlkdbjZG/pub?gid=0&single=true&output=csv";
+
 const api = {
   list: async (): Promise<Restaurant[]> => {
-    await sleep(7500);
+    // Obtenemos la información de Google Sheets en formato texto y la dividimos por líneas, nos saltamos la primera línea porque es el encabezado
+    const [, ...data] = await fetch(
+      DATA_URL)
+      .then((res) => res.text())
+      .then((text) => text.split("\n"));
 
+    // Convertimos cada línea en un objeto Restaurant, asegúrate de que los campos no posean `,`
+    const restaurants: Restaurant[] = data.map((row) => {
+      const [id, name, description, address, score, ratings, image] = row.split(',')
+      return {
+        id,
+        name,
+        description,
+        address,
+        score: Number(score),
+        ratings: Number(ratings),
+        image
+      }
+    })
+
+    // Lo retornamos
     return restaurants;
   },
   fetch: async (id: Restaurant["id"]): Promise<Restaurant> => {
-    await sleep(7500);
+    // Obtenemos la información de Google Sheets en formato texto y la dividimos por líneas, nos saltamos la primera línea porque es el encabezado
+    const [, ...data] = await fetch(
+      DATA_URL
+    )
+      .then((res) => res.text())
+      .then((text) => text.split("\n"));
 
+    // Convertimos cada línea en un objeto Restaurant, asegúrate de que los campos no posean `,`
+    const restaurants: Restaurant[] = data.map((row) => {
+      const [id, name, description, address, score, ratings, image] =
+        row.split(",");
+      return {
+        id,
+        name,
+        description,
+        address,
+        score: Number(score),
+        ratings: Number(ratings),
+        image,
+      };
+    });
+
+    // Buscamos el restaurante por id
     const restaurant = restaurants.find((restaurant) => restaurant.id === id);
 
     if (!restaurant) {
