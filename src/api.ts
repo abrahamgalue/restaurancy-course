@@ -131,7 +131,7 @@ const api = {
   list: async (): Promise<Restaurant[]> => {
     // Obtenemos la información de Google Sheets en formato texto y la dividimos por líneas, nos saltamos la primera línea porque es el encabezado
     const [, ...data] = await fetch(
-      DATA_URL)
+      DATA_URL, {next: {tags: ['restaurants']}})
       .then((res) => res.text())
       .then((text) => text.split("\n"));
 
@@ -154,9 +154,9 @@ const api = {
   },
   fetch: async (id: Restaurant["id"]): Promise<Restaurant> => {
     // Obtenemos la información de Google Sheets en formato texto y la dividimos por líneas, nos saltamos la primera línea porque es el encabezado
-    const [, ...data] = await fetch(
-      DATA_URL
-    )
+    const [, ...data] = await fetch(DATA_URL, {
+      next: { tags: ["restaurants"] },
+    })
       .then((res) => res.text())
       .then((text) => text.split("\n"));
 
