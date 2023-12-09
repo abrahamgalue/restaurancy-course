@@ -207,7 +207,7 @@ const api = {
       // Los retornamos
       return results;
     } else {
-      const restaurants = api.list();      
+      const restaurants = api.list();
 
       return restaurants;
     }

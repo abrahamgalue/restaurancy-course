@@ -1,7 +1,7 @@
-import api from "@/api";
-import Card from "@/app/components/Card";
+import api from "@/app/lib/api";
+import Card from "@/app/ui/Card";
 import Link from "next/link";
-import SearchBox from "./components/SearchBox";
+import SearchBox from "@/app/ui/SearchBox";
 
 export default async function Home({ searchParams }: { searchParams: {q: string}}) {
   const restaurants = await api.search(searchParams.q);

@@ -1,4 +1,4 @@
-import { type Restaurant } from '@/api'
+import { type Restaurant } from '@/app/lib/api'
 
 export default function Card({ id, name, image, score, ratings, description }: Restaurant) {
   return (
