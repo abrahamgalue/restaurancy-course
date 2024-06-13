@@ -6,6 +6,8 @@
 
 ### 🪐 Este es un proyecto introductorio a Next.js que abarca las últimas novedades de Next 14.
 
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://restaurancy-abrahamgalue.vercel.app/)
+
 ![vista-previa](./public/preview/01-page-preview.jpg)
 
 ## 🚀 Descripción
