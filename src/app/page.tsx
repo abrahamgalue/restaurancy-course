@@ -19,11 +19,15 @@ export default async function Home({searchParams}: {searchParams: {q: string}}) 
         {/* Inicializamos el input para que contenga el valor actual de la query */}
         <input
           autoComplete="off"
-          className="rounded-xl px-2"
+          className="rounded-xl border-[1px] border-slate-400 px-2"
           defaultValue={searchParams.q || ""}
           name="query"
+          placeholder="Search place..."
         />
-        <button className="rounded-xl bg-white/20 p-2 hover:bg-white/30" type="submit">
+        <button
+          className="rounded-xl bg-white p-2 font-bold text-black hover:bg-white/80"
+          type="submit"
+        >
           Search
         </button>
       </form>

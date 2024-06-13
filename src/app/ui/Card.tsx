@@ -23,11 +23,13 @@ const DynamicFavoriteButton = dynamic(async () => FavoriteButton, {ssr: false});
 export default function Card(restaurant: Restaurant) {
   return (
     <article key={restaurant.id}>
-      <img
-        alt={restaurant.name}
-        className="mb-3 h-[300px] w-full rounded-xl object-cover"
-        src={restaurant.image}
-      />
+      <picture>
+        <img
+          alt={restaurant.name}
+          className="mb-3 h-[300px] w-full rounded-xl object-cover"
+          src={restaurant.image}
+        />
+      </picture>
       <h2 className="inline-flex gap-2 text-lg font-bold">
         <span>{restaurant.name}</span>
         <small className="inline-flex gap-1">
