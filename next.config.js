@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     ppr: false,
-    serverActions: true,
   },
 };
 
